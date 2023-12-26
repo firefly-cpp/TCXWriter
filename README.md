@@ -1,4 +1,4 @@
-# tcxwriter -- A Tiny Library for writing/creating TCX files on ESP32 devices
+# tcxwriter -- A Tiny Library for writing/creating TCX files on Arduino & ESP32 devices
 
 ## About
 
