@@ -2,6 +2,8 @@
 
 ## About
 
+## Supported devices
+
 ## License
 
 This package is distributed under the MIT License. This license can be found online at <http://www.opensource.org/licenses/MIT>.
