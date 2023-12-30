@@ -56,7 +56,7 @@ TCXWriter::addTrackpoint (float latitude, float longitude, float altitude,
 {
   if (tcxFile)
     {
-      char tcxtime[20];
+      char tcxtime[21];
       generateTCXTime (year, month, day, hour, minute, second, tcxtime);
 
       tcxFile.println (F ("      <Trackpoint>"));
@@ -75,7 +75,7 @@ TCXWriter::addTrackpoint (float latitude, float longitude, float altitude,
       tcxFile.print (altitude);
       tcxFile.println (F ("</AltitudeMeters>"));
       tcxFile.print (F ("        <HeartRateBpm>"));
-      tcxFile.print (F ("          <Value>"));
+      tcxFile.print (F ("<Value>"));
       tcxFile.print (hr);
       tcxFile.println (F ("</Value>"));
       tcxFile.println (F ("        </HeartRateBpm>"));
@@ -93,11 +93,12 @@ TCXWriter::writeHeader (int year, int month, int day, int hour, int minute,
 {
   if (tcxFile)
     {
-      char tcxtime[20];
+      char tcxtime[21];
       generateTCXTime (year, month, day, hour, minute, second, tcxtime);
       tcxFile.print (F ("      <Id>"));
       tcxFile.print (tcxtime);
       tcxFile.println (F ("</Id>"));
+      tcxFile.println (F ("      <Lap>"));
     }
   else
     {
@@ -110,6 +111,7 @@ TCXWriter::writeFooter ()
 {
   if (tcxFile)
     {
+      tcxFile.println (F ("      </Lap>"));
       tcxFile.println (F ("    </Activity>"));
       tcxFile.println (F ("  </Activities>"));
       tcxFile.println (F ("</TrainingCenterDatabase>"));
@@ -125,6 +127,5 @@ void
 TCXWriter::generateTCXTime (int year, int month, int day, int hour,
 			    int minute, int second, char *tcxtime)
 {
-  snprintf (tcxtime, 20, "%04d-%02d-%02dT%02d:%02d:%02dZ", year, month, day,
-	    hour, minute, second);
+  snprintf(tcxtime, 21, "%04d-%02d-%02dT%02d:%02d:%02dZ", year, month, day, hour, minute, second);
 }
