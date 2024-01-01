@@ -1,7 +1,22 @@
 #include "TCXWriter.h"
 
+#define RADIUS_EARTH_KM 6371.0
 TCXWriter::TCXWriter ()
 {
+}
+
+double toRadians(double degree) {
+  return degree * (M_PI / 180.0);
+}
+
+double distance(double lat1, double lon1, double lat2, double lon2) {
+  double dlat = toRadians(lat2 - lat1);
+  double dlon = toRadians(lon2 - lon1);
+
+  double a = sin(dlat / 2.0) * sin(dlat / 2.0) + cos(toRadians(lat1)) * cos(toRadians(lat2)) * sin(dlon / 2.0) * sin(dlon / 2.0);
+  double c = 2.0 * atan2(sqrt(a), sqrt(1.0 - a));
+
+  return RADIUS_EARTH_KM * c;
 }
 
 void
@@ -16,6 +31,8 @@ TCXWriter::begin (const char *filename)
 #else
   // Add support also for the other platforms, e.g. ESP8266 # TODO
 #endif
+
+
   Serial.println ("SD card initialization failed!");
   return;
 }
@@ -42,6 +59,10 @@ if (tcxFile)
 	       ("  xsi:schemaLocation=\"http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd\">"));
     tcxFile.println (F ("  <Activities>"));
     tcxFile.println (F ("    <Activity Sport=\"Cycling\">"));	// # TODO: User should manually change this.
+
+    // init lapDistance to 0.0
+    lapDistance = 0.0;
+    lapDistanceFlag = false;
   }
 else
   {
@@ -58,6 +79,20 @@ TCXWriter::addTrackpoint (float latitude, float longitude, float altitude,
     {
       char tcxtime[21];
       generateTCXTime (year, month, day, hour, minute, second, tcxtime);
+
+      // update lapDistance
+      if (lapDistanceFlag == true)
+      {
+        lapDistance += distance(currentLat, currentLon, latitude, longitude);
+        currentLat = latitude;
+        currentLon = longitude;
+      }
+      else
+      {
+        currentLat = latitude;
+        currentLon = longitude;
+        lapDistanceFlag = true;
+      }
 
       tcxFile.println (F ("      <Trackpoint>"));
       tcxFile.print (F ("        <Time>"));
@@ -111,6 +146,9 @@ TCXWriter::writeFooter ()
 {
   if (tcxFile)
     {
+      tcxFile.print (F ("          <DistanceMeters>"));
+      tcxFile.print (lapDistance, 6);
+      tcxFile.println (F ("</DistanceMeters>"));
       tcxFile.println (F ("      </Lap>"));
       tcxFile.println (F ("    </Activity>"));
       tcxFile.println (F ("  </Activities>"));

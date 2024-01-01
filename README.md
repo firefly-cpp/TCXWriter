@@ -17,6 +17,10 @@ Reading/parsing TCX files can be quickly done using the following software packa
 - [sport-activities-features](https://github.com/firefly-cpp/sport-activities-features)
 - [tcxreader](https://github.com/alenrajsp/tcxreader)
 
+## Related frameworks
+
+[AST-Monitor](https://github.com/firefly-cpp/AST-Monitor)
+
 ## License
 
 This package is distributed under the MIT License. This license can be found online at <http://www.opensource.org/licenses/MIT>.

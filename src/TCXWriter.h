@@ -80,6 +80,10 @@ public:
 
 private:
     File tcxFile;		// File object.
+    float currentLon;
+    float currentLat;
+    bool lapDistanceFlag;
+    float lapDistance;
 
   /**
    * @brief Generates a formatted TCX time string.
