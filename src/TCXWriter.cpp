@@ -100,15 +100,18 @@ TCXWriter::addTrackpoint (float latitude, float longitude, float altitude,
       tcxFile.println (F ("</Time>"));
       tcxFile.println (F ("        <Position>"));
       tcxFile.print (F ("          <LatitudeDegrees>"));
-      tcxFile.print (latitude, 4);
+      tcxFile.print (latitude, 7);
       tcxFile.println (F ("</LatitudeDegrees>"));
       tcxFile.print (F ("          <LongitudeDegrees>"));
-      tcxFile.print (longitude, 4);
+      tcxFile.print (longitude, 7);
       tcxFile.println (F ("</LongitudeDegrees>"));
       tcxFile.println (F ("        </Position>"));
       tcxFile.print (F ("        <AltitudeMeters>"));
       tcxFile.print (altitude);
       tcxFile.println (F ("</AltitudeMeters>"));
+      tcxFile.print (F ("        <DistanceMeters>"));
+      tcxFile.print (lapDistance);
+      tcxFile.println (F ("</DistanceMeters>"));
       tcxFile.print (F ("        <HeartRateBpm>"));
       tcxFile.print (F ("<Value>"));
       tcxFile.print (hr);
@@ -134,6 +137,7 @@ TCXWriter::writeHeader (int year, int month, int day, int hour, int minute,
       tcxFile.print (tcxtime);
       tcxFile.println (F ("</Id>"));
       tcxFile.println (F ("      <Lap>"));
+      tcxFile.println (F ("      <Track>"));
     }
   else
     {
@@ -147,8 +151,9 @@ TCXWriter::writeFooter ()
   if (tcxFile)
     {
       tcxFile.print (F ("          <DistanceMeters>"));
-      tcxFile.print (lapDistance, 6);
+      tcxFile.print (lapDistance, 4);
       tcxFile.println (F ("</DistanceMeters>"));
+      tcxFile.println (F ("      </Track>"));
       tcxFile.println (F ("      </Lap>"));
       tcxFile.println (F ("    </Activity>"));
       tcxFile.println (F ("  </Activities>"));
