@@ -1,10 +1,9 @@
 /** @file TCXWriter.h
  *  @brief Function/procedure prototypes for TCXWriter library.
  *
- *  @note Laps are not yet supported in the current version.
  *  @author Iztok Fister Jr.
  *  @bug No known bugs.
- *  @version v1.0.0
+ *  @version v0.1.0
  *  @date Last Change: 27.12.2023
  */
 
@@ -17,6 +16,8 @@
 #include <SD.h>
 #elif defined(ARDUINO_ARCH_AVR)
 #include <SD.h>
+#else
+#include <SD_MMC.h>
 #endif
 
 /**

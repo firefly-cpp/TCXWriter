@@ -2,9 +2,10 @@
 
 ---
 
-[![Arduino CI](https://github.com/firefly-cpp/TCXWriter/workflows/Arduino%20CI/badge.svg)](https://github.com/marketplace/actions/arduino_ci)
 [![Arduino-lint](https://github.com/firefly-cpp/TCXWriter/actions/workflows/arduino-lint.yml/badge.svg)](https://github.com/firefly-cpp/TCXWriter/actions/workflows/arduino-lint.yml)
-
+![GitHub repo size](https://img.shields.io/github/repo-size/firefly-cpp/TCXWriter?style=flat-square)
+[![GitHub license](https://img.shields.io/github/license/firefly-cpp/TCXWriter.svg)](https://github.com/firefly-cpp/TCXWriter/blob/master/LICENSE)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/firefly-cpp/TCXWriter.svg)
 
 ## About
 
