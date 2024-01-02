@@ -17,8 +17,6 @@
 #include <SD.h>
 #elif defined(ARDUINO_ARCH_AVR)
 #include <SD.h>
-#else
-#include <SD_MMC.h>
 #endif
 
 /**
