@@ -1,0 +1,23 @@
+{
+  "name": "TCXWriter",
+  "keywords": "TCX, XML, sport tracker, GPS",
+  "description": "A Tiny Library for writing/creating TCX files.",
+  "authors":
+  [
+    {
+      "name": "Iztok Fister, Jr.",
+      "email": "iztok@iztok.xyz",
+      "maintainer": true
+    }
+  ],
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/firefly-cpp/TCXWriter.git"
+  },
+  "version": "0.1.0",
+  "license": "MIT",
+  "frameworks": "*",
+  "platforms": "*",
+  "headers": "TCXWriter.h"
+}

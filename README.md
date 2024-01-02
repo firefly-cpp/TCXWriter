@@ -1,5 +1,11 @@
 # tcxwriter -- A Tiny Library for writing/creating TCX files on Arduino & ESP32 devices
 
+---
+
+[![Arduino CI](https://github.com/firefly-cpp/TCXWriter/workflows/Arduino%20CI/badge.svg)](https://github.com/marketplace/actions/arduino_ci)
+[![Arduino-lint](https://github.com/firefly-cpp/TCXWriter/actions/workflows/arduino-lint.yml/badge.svg)](https://github.com/firefly-cpp/TCXWriter/actions/workflows/arduino-lint.yml)
+
+
 ## About
 
 TCXWriter is a lightweight library designed for Arduino and ESP32 projects that involves recording and storing GPS and heart rate data in the Training Center XML (TCX) file format. This library simplifies creating TCX files by providing intuitive functions to initialize, add trackpoints, and finalize TCX files. It seamlessly integrates with Arduino's SD library, making it compatible with various platforms. The TCXWriter framework enables developers to effortlessly log location and health data during activities such as cycling or running, facilitating easy analysis and visualization of performance metrics. Primarily, it was designed to support the development of lightweight sports trackers.
