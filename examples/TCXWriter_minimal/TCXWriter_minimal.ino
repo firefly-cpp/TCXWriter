@@ -1,3 +1,8 @@
+//    @FILE: TCXWriter_minimal.ino
+//    @AUTHOR: Iztok Fister, Jr.
+//    @PURPOSE: TCXWriter basic example
+//    @URL: https://github.com/firefly-cpp/TCXWriter
+
 #include <TCXWriter.h>
 #include <SoftwareSerial.h>
 #include <TinyGPS++.h>
