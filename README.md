@@ -1,3 +1,9 @@
+<p align="center">
+  <img width="256" src="./.github/logo/tcxwriter_logo_256.png">
+</p>
+
+---
+
 # tcxwriter -- A Tiny Library for writing/creating TCX files on Arduino & ESP32 devices
 
 ---
@@ -15,14 +21,14 @@ TCXWriter is a lightweight library designed for Arduino and ESP32 projects that 
 
 TCXWriter should, in theory, work on all Arduino devices, but those specific devices have been reported as working:
 
-- Arduino Nano
+-   Arduino Nano
 
 ## How to read/parse TCX files?
 
 Reading/parsing TCX files can be quickly done using the following software packages or frameworks:
 
-- [sport-activities-features](https://github.com/firefly-cpp/sport-activities-features)
-- [tcxreader](https://github.com/alenrajsp/tcxreader)
+-   [sport-activities-features](https://github.com/firefly-cpp/sport-activities-features)
+-   [tcxreader](https://github.com/alenrajsp/tcxreader)
 
 ## Related frameworks
 
