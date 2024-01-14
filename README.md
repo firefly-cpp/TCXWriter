@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="256" src="./.github/logo/tcxwriter_logo_256.png">
+  <img width="256" src="./.github/logo/tcxwriter_logo_512.png">
 </p>
 
 ---
